@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -34,8 +34,8 @@ class ViewController: UIViewController {
                     for var i = 0; i < urlArray.count; i++ {
                         let imageData = NSData(contentsOfURL: NSURL(string: urlArray[i])!)
                         if let imageDataUnwrapped = imageData {
-                            let imageView = UIImageView(image: UIImage(data: imageDataUnwrapped))
-                            imageView.frame = CGRectMake(0, 320 * CGFloat(i), 320, 320)
+                            let imageView = UIImageView(frame: CGRectMake(0, 320*CGFloat(i), 320, 320))
+                            imageView.setImageWithURL(NSURL(string: urlArray[i]))
                             self.scrollView.addSubview(imageView)
                         }
                     }
@@ -50,6 +50,17 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        for subview in self.scrollView.subviews {
+            subview.removeFromSuperview()
+        }
+        searchBar.resignFirstResponder()
+        
+        let instagramURLString = "https://api.instagram.com/v1/tags/\(searchBar.text)/media/recent?client_id=bf88a9bc7f58497ba3bb81e2dc40d846"
+    
     }
 
 

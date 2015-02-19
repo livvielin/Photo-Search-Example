@@ -18,19 +18,28 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfc-O7-h6L">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                             </scrollView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ARG-rY-fGx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="yGB-PA-Eb8"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="sfc-O7-h6L" secondAttribute="trailing" id="I26-C4-NGg"/>
-                            <constraint firstAttribute="bottom" secondItem="sfc-O7-h6L" secondAttribute="bottom" id="KM4-KE-g3s"/>
-                            <constraint firstItem="sfc-O7-h6L" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="MuD-Fx-CXp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sfc-O7-h6L" secondAttribute="trailing" constant="-16" id="Nc2-dG-7Xz"/>
-                            <constraint firstItem="sfc-O7-h6L" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ceA-O8-c9o"/>
-                            <constraint firstItem="sfc-O7-h6L" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="fZD-LS-gWe"/>
-                            <constraint firstItem="sfc-O7-h6L" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="k9E-Om-4s9"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sfc-O7-h6L" secondAttribute="bottom" id="uCk-ah-JWC"/>
+                            <constraint firstItem="sfc-O7-h6L" firstAttribute="trailing" secondItem="ARG-rY-fGx" secondAttribute="trailing" id="GY1-I5-3SX"/>
+                            <constraint firstItem="sfc-O7-h6L" firstAttribute="leading" secondItem="ARG-rY-fGx" secondAttribute="leading" id="KeK-F4-zXw"/>
+                            <constraint firstItem="ARG-rY-fGx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="NHd-26-fdp"/>
+                            <constraint firstItem="ARG-rY-fGx" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="aJh-gw-uxt"/>
+                            <constraint firstItem="sfc-O7-h6L" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="auk-eg-Kcd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ARG-rY-fGx" secondAttribute="trailing" constant="-16" id="bSu-03-NoJ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sfc-O7-h6L" secondAttribute="bottom" id="hfh-nV-lt1"/>
+                            <constraint firstItem="sfc-O7-h6L" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="44" id="kxQ-Lu-AgU"/>
+                            <constraint firstItem="sfc-O7-h6L" firstAttribute="top" secondItem="ARG-rY-fGx" secondAttribute="bottom" id="orC-ER-2qf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sfc-O7-h6L" secondAttribute="trailing" constant="-16" id="xSX-vY-mko"/>
                         </constraints>
                     </view>
                     <connections>
