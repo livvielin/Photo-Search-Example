@@ -15,9 +15,28 @@ class ViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        searchInstagramByHashtag("dogs")
         
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        for subview in self.scrollView.subviews {
+            subview.removeFromSuperview()
+        }
+        searchBar.resignFirstResponder()
+        searchInstagramByHashtag(searchBar.text)
+    
+    }
+    
+    func searchInstagramByHashtag(searchString: String) {
         let manager = AFHTTPRequestOperationManager()
-        manager.GET( "https://api.instagram.com/v1/tags/cats/media/recent?client_id=bf88a9bc7f58497ba3bb81e2dc40d846",
+        manager.GET( "https://api.instagram.com/v1/tags/\(searchString)/media/recent?client_id=bf88a9bc7f58497ba3bb81e2dc40d846",
             parameters: nil,
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                 println("JSON: " + responseObject.description)
@@ -43,24 +62,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
                 println("Error: " + error.localizedDescription)
-            })
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        
-        for subview in self.scrollView.subviews {
-            subview.removeFromSuperview()
-        }
-        searchBar.resignFirstResponder()
-        
-        let instagramURLString = "https://api.instagram.com/v1/tags/\(searchBar.text)/media/recent?client_id=bf88a9bc7f58497ba3bb81e2dc40d846"
-    
+        })
     }
 
 
